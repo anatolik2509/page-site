@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class MessageServiceJpaImpl implements MessageService{
 
-    private MessageRepository messageRepository;
+    private final MessageRepository messageRepository;
 
     @Autowired
     public MessageServiceJpaImpl(MessageRepository messageRepository) {
@@ -25,5 +25,10 @@ public class MessageServiceJpaImpl implements MessageService{
         PageRequest pageRequest = PageRequest.of(page, pageSize, Sort.by("created"));
         Page<Message> result = messageRepository.findAll(pageRequest);
         return result.toList();
+    }
+
+    @Override
+    public void addMessage(Message message) {
+        messageRepository.save(message);
     }
 }

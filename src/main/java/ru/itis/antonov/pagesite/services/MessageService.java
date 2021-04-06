@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface MessageService {
     List<Message> messagePage(int page, int pageSize);
+
+    void addMessage(Message message);
 }
