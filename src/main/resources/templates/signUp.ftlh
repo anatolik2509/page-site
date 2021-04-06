@@ -7,11 +7,12 @@
 </head>
 <body>
 <div class="center">
-    <form method="post" action="<@spring.url "/signUp"/>" class="column-container">
+    <form method="post" action="<@spring.url "/register"/>" class="column-container">
         <input name="login" class="placeholder form-field" placeholder="login"/>
         <input name="password" class="placeholder form-field" type="password" placeholder="password"/>
         <input name="passwordRepeat" class="placeholder form-field" type="password" placeholder="repeat password">
         <input class="btn btn-success" type="submit" value="submit"/>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
     </form>
 </div>
 </body>
