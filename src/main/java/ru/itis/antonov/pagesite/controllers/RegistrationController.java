@@ -34,7 +34,6 @@ public class RegistrationController {
         }
         try {
             userService.signUp(form);
-            authentication.setAuthenticated(true);
         }
         catch (LoginOccupiedException e){
             e.printStackTrace();
